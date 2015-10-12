@@ -1,0 +1,5 @@
+sunscrapers.apt
+sunscrapers.common
+ANXS.ntp,v1.1.0
+ANXS.timezone,v1.0.2
+ANXS.postgresql,v1.2.1

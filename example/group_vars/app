@@ -1,0 +1,28 @@
+
+common_users: ["app"]
+root_users: ["root"]
+common_authorized_users: "{{ common_users | union(root_users) }}"
+common_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgJnybCJV/SGp1MHPWz3LKRdT/FSOIog8odV6zIvdLFgJImyUK/N9VQTdMUKdWduNlS6GcxW/DG2e1dFhlij7SEvuizrFjHLjMOIrEoRo/hGLi4vR6GTO3A7KiEA/smYEMFPgUKXW8/ex3is/HGoX8diAenEQ9O3EyCquYGVgHZhSdrK9tBuu45hkY8gUjfL2VpX9obJQextre49hY/UIXXZdd3JFJFr+GbtTCF97IlSVxp7eCKRKaibp3Eqafjx/tPe7dU2kSu9UmwLp1j/P14f+NvjAnLr8/cL0URoX8g695IvlKqKl0JTZe8pdUB5SzS+lM1BAj6CCQTZpZcz9X
+common_ssh_private_key: "{{ lookup('file', 'files/id_rsa') }}"
+common_known_hosts:
+ - "|1|qKO2s1YCDRxM0s2EpVGzXGy+UK0=|e9PcDpsVLk0qfWm6grzrWfpcSEU= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw=="
+
+python_apt_packages:
+  - python
+  - python-pip
+  - python-dev
+  - python3
+  - python3-pip
+  - python3-dev
+python_pip_packages:
+  - requests[security]
+
+postgresql_databases:
+  - name: nds_db
+postgresql_users:
+  - name: nds
+    pass: super_secret_pass123
+postgresql_user_privileges:
+  - name: nds
+    db: nds_db

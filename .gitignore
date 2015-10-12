@@ -1,0 +1,8 @@
+slides/node_modules
+slides/bower_components
+slides/index.html
+example/.vagrant
+example/staging
+example/files/id_rsa
+example/roles/*
+.idea

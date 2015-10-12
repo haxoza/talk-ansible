@@ -1,0 +1,9 @@
+- hosts: app
+  roles:
+  - sunscrapers.common
+  - sunscrapers.apt
+  - ANXS.timezone
+  - ANXS.ntp
+  - python
+  - ANXS.postgresql
+  - nginx
